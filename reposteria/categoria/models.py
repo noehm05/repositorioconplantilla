@@ -1,10 +1,16 @@
-from reposteria.database import PKModel, Column, db
+"""Modelos de datos para las categorías de la repostería."""
+
+from reposteria.database import Column, PKModel, db
+
 
 class Categoria(PKModel):
-     __tablename__ = "categorias"
+    """Representa una categoría de productos."""
 
-     nombre = Column(db.String(100), nullable =False, unique=True)
-     descripcion = Column(db.String(250), nullable =False)
+    __tablename__ = "categorias"
 
-     def __repr__(self) -> str:
-         return f"Address(id={self.id!r}, email_address={self.email_address!r})"
+    nombre = Column(db.String(100), nullable=False, unique=True)
+    descripcion = Column(db.String(250), nullable=False)
+
+    def __repr__(self) -> str:
+        """Devuelve una representación de la categoría."""
+        return f"Categoria(nombre={self.nombre!r}, descripcion={self.descripcion!r})"
